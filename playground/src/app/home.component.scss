@@ -1,0 +1,40 @@
+@import '../styles.scss';
+
+:host {
+  font-family: sans-serif;
+  margin-bottom: 50px;
+  display: block;
+}
+
+.ng-tooltip--demo-example {
+  padding: 25px;
+  border: 1px $purple solid;
+}
+pre {
+  background-color: $purple;
+  color: white;
+  padding: 25px;
+  font-size: 14px;
+  margin-top: 0;
+  overflow-x: auto;
+}
+
+section:not(:last-of-type) {
+  margin-bottom: 30px;
+  border-bottom: 2px solid lightgrey;
+  padding-bottom: 30px;
+}
+
+.ng-tooltip--header {
+  padding-bottom: 30px;
+  margin-bottom: 40px;
+  border-bottom: 3px solid $purple;
+}
+.ng-tooltip--custom-button { padding: 10px 20px; }
+.ng-tooltip--custom-link { text-decoration: underline; color: $purple; cursor: pointer; }
+.ng-tooltip-lg, .ng-tooltip-md {
+  margin-bottom: 20px;
+}
+.ng-tooltip-lg { font-size: 26px; }
+.ng-tooltip-md { font-size: 21px; }
+.ng-tooltip-sm { font-size: 16px; }
