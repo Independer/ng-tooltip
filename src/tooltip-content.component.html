@@ -1,0 +1,12 @@
+<div class="tooltip" [ngClass]="{ 'is-shown': isShown, 'is-showing': isShowing, 'tooltip__wide': isTooltipWide }" [style.left]="leftPosition" [style.right]="rightPosition"
+  [style.top]="topPosition" [style.bottom]="bottomPosition">
+  <div class="tooltip--arrow" #tooltipArrow [style.left]="arrowLeftPosition"
+    [style.right]="arrowRightPosition"></div>
+  <span class="tooltip--close-btn if-generic--close-button" (click)="hide()"></span>
+  <div class="tooltip--content">
+    <div class="tooltip--content__header">{{ header }}</div>
+    <div *ngIf="content" [innerHTML]="content"></div>
+
+    <ng-template [ngTemplateOutlet]="tooltipContentTemplateRef"></ng-template>
+  </div>
+</div>

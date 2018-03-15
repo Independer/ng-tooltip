@@ -1,0 +1,37 @@
+:host {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  color: black;
+  white-space: initial;
+
+  &:focus { outline: none; }
+
+  .icon-question-mark:hover,
+  &:focus .icon-question-mark {
+    background-color: #999999;
+  }
+}
+
+.trigger { display: inline-block; }
+
+$icon-sm-size: 15px;
+$icon-md-size: 20px;
+$icon-lg-size: 25px;
+
+.icon-question-mark {
+  display: inline-block;
+  position: relative;
+  top: 2px;
+  border-radius: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iNS43ODVweCIgaGVpZ2h0PSI5LjYyM3B4IiB2aWV3Qm94PSIwIDAgNS43ODUgOS42MjMiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDUuNzg1IDkuNjIzIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yLjA1OSw1Ljc0M2MwLTEuNzc5LDIuNTIxLTEuOTE5LDIuNTIxLTMuNDA0YzAtMC43LTAuNTQ2LTEuMzAzLTEuNjM5LTEuMzAzDQoJCWMtMS4wNjUsMC0xLjcyMywwLjQ0OC0yLjI0MSwxLjE0OUwwLDEuNDI5QzAuNjcyLDAuNTQ2LDEuNzA5LDAsMy4wNCwwYzEuNzA4LDAsMi43NDUsMC45NjYsMi43NDUsMi4xNzENCgkJYzAsMi4xMTUtMi43MDMsMi4yOTctMi43MDMsMy42N2MwLDAuMjI0LDAuMTI2LDAuNTA0LDAuMzY0LDAuNjcyTDIuNTkyLDYuODkyQzIuMjEzLDYuNTY5LDIuMDU5LDYuMTc3LDIuMDU5LDUuNzQzeiBNMi4xMTUsOC44NTMNCgkJYzAtMC40MiwwLjM1LTAuNzcxLDAuNzcxLTAuNzcxczAuNzcxLDAuMzUsMC43NzEsMC43NzFzLTAuMzUsMC43NzEtMC43NzEsMC43NzFTMi4xMTUsOS4yNzMsMi4xMTUsOC44NTN6Ii8+DQo8L2c+DQo8L3N2Zz4NCg==');
+  background-color: #777777;
+  cursor: pointer;
+
+  &.sm { width: 15px; height: 15px; background-size: auto 9px; }
+  &.md { width: 20px; height: 20px; background-size: auto 11.5px; }
+  &.lg { width: 25px; height: 25px; background-size: auto 14px; }
+
+}

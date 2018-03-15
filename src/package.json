@@ -1,0 +1,29 @@
+{
+  "name": "@independer/ng-tooltip",
+  "version": "1.1.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Independer/ng-tooltip"
+  },
+  "author": {
+    "name": "Hans Sebastian Tiono",
+    "email": "htiono@independer.nl"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Independer/ng-tooltip/issues"
+  },
+  "main": "tooltip.umd.js",
+  "module": "tooltip.js",
+  "jsnext:main": "tooltip.js",
+  "typings": "tooltip.d.ts",
+  "peerDependencies": {
+    "@angular/core": "~5.0.0",
+    "@angular/common": "~5.0.0",
+    "rxjs": "5.5.2",
+    "zone.js": ">=0.8.4"
+  }
+}
