@@ -10,14 +10,6 @@
   padding: 25px;
   border: 1px $purple solid;
 }
-pre {
-  background-color: $purple;
-  color: white;
-  padding: 25px;
-  font-size: 14px;
-  margin-top: 0;
-  overflow-x: auto;
-}
 
 section:not(:last-of-type) {
   margin-bottom: 30px;
@@ -38,3 +30,5 @@ section:not(:last-of-type) {
 .ng-tooltip-lg { font-size: 26px; }
 .ng-tooltip-md { font-size: 21px; }
 .ng-tooltip-sm { font-size: 16px; }
+
+

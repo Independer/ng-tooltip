@@ -1,0 +1,37 @@
+@import '../../styles.scss';
+
+:host {
+  .highlight-container {
+    position: relative;
+    margin: 0 0 50px 0;
+    max-width: 100%;
+  }
+
+  .highlight {
+    display: block;
+    position: relative;
+    margin: 0;
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  code {
+    overflow: auto;
+    border-radius: 0 0 5px 5px;
+    background-color: $purple;
+    color: white;
+    display: block;
+    padding: 25px;
+    font-size: 14px;
+    padding-right: 60px;
+    margin-top: 0;
+  }
+  pre, code { padding: 0; margin: 0; }
+
+  ::ng-deep .highlighted { color: #a1e2ff; }
+  ::ng-deep .lowlighted { color: #66BB6a; }
+  ::ng-deep .stringlighted { color: #FFDF35; }
+  ::ng-deep .tooltip-content-template { color: #ff9292; }
+}

@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
 import { TooltipModule } from '@independer/ng-tooltip';
 import { HomeComponent } from './home.component';
+import { HighlightComponent } from './highlight/highlight.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    HighlightComponent
   ],
   imports: [
     BrowserModule,
