@@ -23,11 +23,11 @@ import { TooltipModule } from  '@independer/ng-tooltip';
 ...
   
 @NgModule({
-	imports: [
-		...,
-		TooltipModle.forRoot() // This .forRoot() is necessary
-	],
-	...
+  imports: [
+    ...,
+    TooltipModle.forRoot() // This .forRoot() is necessary
+  ],
+  ...
 })
 export class AppModule { }
 ```
@@ -41,7 +41,6 @@ This tooltip container will be the parent DOM element where all the tooltips wil
 <!--app.component.html -->
 
 <router-outlet></router-outlet>
-
 <ind-tooltip-container></ind-tooltip-container>
 ```
 
@@ -58,16 +57,14 @@ Tooltip with icon sm (default) <ind-tooltip content="This is a simple tooltip wh
 You can also specify any custom HTML element as the  tooltip trigger and the trigger will not be the circle question mark icon anymore.
 ```html
 <ind-tooltip content="Tooltip without question mark">
-	<a>Click this link!</a> 
+  <a>Click this link!</a> 
 </ind-tooltip\>
 ```
 
 ### Tooltip with header and content
 Inside the tooltip you can write optionally header and content separately.
 ```html
-<ind-tooltip header="This is tooltip header" 
-	content="Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum.">
-</ind-tooltip>
+<ind-tooltip header="This is tooltip header" content="Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum."></ind-tooltip>
 ```
 
 ### Tooltip with HTML content
@@ -75,10 +72,10 @@ It is also possible to have custom HTML content inside the tooltip by declaring 
 
 ```html
 <ind-tooltip header="This is a tooltip with HTML elements"> 
-	<ng-template #tooltipContentTemplate> 
-		Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum. 
-		<h4>And a button</h4\> 
-		<button>A button</button\>
-	</ng-template>
+  <ng-template #tooltipContentTemplate> 
+    Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum. 
+    <h4>And a button</h4\> 
+    <button>A button</button\>
+  </ng-template>
 </ind-tooltip>
 ```
