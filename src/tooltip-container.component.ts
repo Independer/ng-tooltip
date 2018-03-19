@@ -6,7 +6,7 @@ import { TooltipComponent } from './tooltip.component';
 @Component({
   selector: 'ind-tooltip-container',
   template: `<ng-template #tooltipContainer></ng-template>`,
-  styleUrls: ['./tooltip-container.component.scss']
+  styles: [`:host { display: block; }`]
 })
 export class TooltipContainerComponent implements OnInit, OnDestroy {
   @ViewChild('tooltipContainer', { read: ViewContainerRef }) tooltipContainerEl: ViewContainerRef;

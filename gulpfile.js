@@ -16,13 +16,9 @@ const { readdirSync } = require('fs')
 
 const rootFolder = path.join(__dirname);
 const srcFolder = path.join(rootFolder, 'src');
-const themesSrcFolder = path.join(srcFolder, 'themes');
 const tmpFolder = path.join(rootFolder, '.tmp');
 const buildFolder = path.join(rootFolder, 'build');
 const distFolder = path.join(rootFolder, 'dist');
-const themesDistFolder = path.join(distFolder, 'themes');
-
-const themes = readdirSync(themesSrcFolder);
 
 /**
  * 1. Delete /dist folder
@@ -159,36 +155,7 @@ gulp.task('rollup:umd', function () {
 });
 
 /**
- * 7. Compile SASS
- */
-gulp.task('compile:themes', function() {
-  return es.merge(themes.map(theme => {
-    return gulp.src([`${themesSrcFolder}/${theme}/*.scss`])
-      .pipe(sass().on('error', sass.logError))
-      .pipe(inline_base64({
-        baseDir: `${themesSrcFolder}/${theme}`
-      }))
-      .pipe(autoprefixer("last 2 version", "> 1%", {
-        cascade: true
-      }))
-      .pipe(gulp.dest(`${themesDistFolder}/${theme}`));
-  }));
-});
-
-/**
- * 8. Copy *.scss files to the /dist so that the application developers
- * could take them and customize the styles easily. 
- */
-gulp.task('copy:themes-src', function() {
-  return es.merge(themes.map(theme => {
-    return gulp.src([`${themesSrcFolder}/${theme}/*.scss`, `${themesSrcFolder}/${theme}/assets/**/*.*`], {base: `${themesSrcFolder}/${theme}`})
-      .pipe(gulp.dest(`${themesDistFolder}/${theme}/src`));
-  }));
-
-});
-
-/**
- * 9. Copy all the files from /build to /dist, except .js files. We ignore all .js from /build
+ * 7. Copy all the files from /build to /dist, except .js files. We ignore all .js from /build
  *    because with don't need individual modules anymore, just the Flat ES module generated
  *    on step 5.
  */
@@ -198,7 +165,7 @@ gulp.task('copy:build', function () {
 });
 
 /**
- * 10. Copy package.json from /src to /dist
+ * 8. Copy package.json from /src to /dist
  */
 gulp.task('copy:manifest', function () {
   return gulp.src([`${srcFolder}/package.json`])
@@ -206,7 +173,7 @@ gulp.task('copy:manifest', function () {
 });
 
 /**
- * 11. Copy README.md from / to /dist
+ * 9. Copy README.md from / to /dist
  */
 gulp.task('copy:readme', function () {
   return gulp.src([path.join(rootFolder, 'README.MD')])
@@ -214,14 +181,14 @@ gulp.task('copy:readme', function () {
 });
 
 /**
- * 12. Delete /.tmp folder
+ * 10. Delete /.tmp folder
  */
 gulp.task('clean:tmp', function () {
   return deleteFolders([tmpFolder]);
 });
 
 /**
- * 13. Delete /build folder
+ * 11. Delete /build folder
  */
 gulp.task('clean:build', function () {
   return deleteFolders([buildFolder]);
@@ -235,8 +202,6 @@ gulp.task('compile', function () {
     'ngc',
     'rollup:fesm',
     'rollup:umd',
-    'compile:themes',
-    'copy:themes-src',
     'copy:build',
     'copy:manifest',
     'copy:readme',

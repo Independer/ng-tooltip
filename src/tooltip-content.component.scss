@@ -41,7 +41,7 @@ $screen-md-max: ($screen-lg-min - 1);
   &.is-shown { opacity: 1; }
 
   @media(max-width:$screen-xs-max) {
-    width: calc(100vw - 30px);
+    width: calc(100vw - 90px);
   }
 }
 

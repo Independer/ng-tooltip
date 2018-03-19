@@ -30,3 +30,6 @@ dist/*
 
 # Playground tmp files
 .playground
+
+# Log files
+*.log
