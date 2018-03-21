@@ -25,7 +25,7 @@ import { TooltipModule } from  '@independer/ng-tooltip';
 @NgModule({
   imports: [
     ...,
-    TooltipModle.forRoot() // This .forRoot() is necessary
+    TooltipModule.forRoot() // This .forRoot() is necessary
   ],
   ...
 })
