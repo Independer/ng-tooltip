@@ -78,15 +78,15 @@ export class TooltipContentComponent implements OnDestroy, OnInit {
   private show(): void {
     this.isShowing = true;
     this.setTooltipPosition(this.windowSizeService.getCurrent());
-    // @Commented rxjs -- this.subscribeToWindowSizeChange();
+    this.subscribeToWindowSizeChange();
     setTimeout(() => { // settimeout to make fade-in works (can not set both opacity animation and display at the same time)
       this.isShown = true;
     }, 0);
   }
 
-  // @Commented rxjs -- private subscribeToWindowSizeChange() {
-  //   this.windowSizeChangeSubscription = this.windowSizeService.subscribeAndExecute((windowSize: WindowSize) => this.setTooltipPosition(windowSize));
-  // }
+  private subscribeToWindowSizeChange() {
+    this.windowSizeChangeSubscription = this.windowSizeService.subscribeAndExecute((windowSize: WindowSize) => this.setTooltipPosition(windowSize));
+  }
 
   private unsubscribeFromWindowSizeChange() {
     if (this.windowSizeChangeSubscription) {

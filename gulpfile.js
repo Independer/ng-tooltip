@@ -85,13 +85,17 @@ gulp.task('rollup:fesm', function () {
       external: [
         '@angular/core',
         '@angular/common',
-        'rxjs/operator/first'
+        'rxjs/Subject',
+        'rxjs/observable/fromEvent',
+        'rxjs/operators'
       ],
 
       globals: {
         '@angular/core': 'core',
         '@angular/common': 'common',
-        'rxjs/operator/first': 'first'
+        'rxjs/Subject': 'Subject',
+        'rxjs/observable/fromEvent': 'fromEvent',
+        'rxjs/operators': 'operators'
       },
 
       // Format of generated bundle
@@ -125,7 +129,10 @@ gulp.task('rollup:umd', function () {
       external: [
         '@angular/core',
         '@angular/common',
-        'rxjs/operator/first'
+        'rxjs',
+        'rxjs/Subject',
+        'rxjs/observable/fromEvent',
+        'rxjs/operators'
       ],
 
       // Format of generated bundle
@@ -146,7 +153,9 @@ gulp.task('rollup:umd', function () {
         typescript: 'ts',
         '@angular/core': 'core',
         '@angular/common': 'common',
-        'rxjs/operator/first': 'first'
+        'rxjs/Subject': 'Subject',
+        'rxjs/observable/fromEvent': 'fromEvent',
+        'rxjs/operators': 'operators'
       }
 
     }))
