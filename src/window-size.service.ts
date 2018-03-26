@@ -1,11 +1,9 @@
 import { Injectable, NgZone } from '@angular/core';
-
-// @Commented rxjs --
-// import { Observable } from 'rxjs/Observable';
-// import { Subscription } from 'rxjs/Subscription';
-// import { Subject } from 'rxjs';
-// import { fromEvent } from 'rxjs/observable/fromEvent';
-// import { map, debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
+import { Subject } from 'rxjs/Subject';
+import { fromEvent } from 'rxjs/observable/fromEvent';
+import { map, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 import { matchMediaPolyfill } from './match-media-polyfill';
 
@@ -46,9 +44,9 @@ export let windowSizes: Readonly<WindowSizes> = {
 
 @Injectable()
 export class WindowSizeService {
-  // @Commented rxjs -- private change: Observable<WindowSize>;
+  private change: Observable<WindowSize>;
   private rules: { [key: string]: string } = {};
-  // @Commented rxjs -- private changeSubject = new Subject<WindowSize>();
+  private changeSubject = new Subject<WindowSize>();
 
   constructor(private zone: NgZone) {
     if (!!window) {
@@ -61,37 +59,34 @@ export class WindowSizeService {
       // For this reason the event is wrapped in zone outside Angular;
       // Whenever a new value comes in - after the debounce time - we trigger the observable that does run in angular;
       // This way, the subscribers will be called only after the debounceTime.
-      // @Commented rxjs --
-      // this.zone.runOutsideAngular(() => {
-      //   let watchThis = fromEvent(window, 'resize')
-      //   .pipe(debounceTime(windowResizeDebounceInMilliseconds));
-      //   watchThis.subscribe(() => {
-      //       this.zone.run(() => {
-      //         this.changeSubject.next();
-      //       });
-      //     }
-      //   );
-      // });
-      // this.change = this.changeSubject.asObservable().map(() => this.getCurrent()).pipe(distinctUntilChanged());
+      this.zone.runOutsideAngular(() => {
+        let watchThis = fromEvent(window, 'resize')
+        .pipe(debounceTime(windowResizeDebounceInMilliseconds));
+        watchThis.subscribe(() => {
+            this.zone.run(() => {
+              this.changeSubject.next();
+            });
+          }
+        );
+      });
+      this.change = this.changeSubject.asObservable().pipe(map(() => this.getCurrent()), distinctUntilChanged());
     }
   }
 
   /**
    * Subscribe to the resizing of the window and execute the provided function immediately.
    */
-  // @Commented rxjs --
-  // subscribeAndExecute(f: (windowSize: WindowSize) => void): Subscription {
-  //   f(this.getCurrent());
-  //   return this.subscribe(f);
-  // }
+  subscribeAndExecute(f: (windowSize: WindowSize) => void): Subscription {
+    f(this.getCurrent());
+    return this.subscribe(f);
+  }
 
   /**
    * Subscribe to the resizing of the window.
    */
-  // @Commented rxjs --
-  // subscribe(f: (windowSize: WindowSize) => void): Subscription {
-  //   return this.change.subscribe(f);
-  // }
+  subscribe(f: (windowSize: WindowSize) => void): Subscription {
+    return this.change.subscribe(f);
+  }
 
   /**
    * Gets the current WindowSize.
