@@ -2,8 +2,11 @@
 # ng-tooltip
 Clickable angular tooltip popup
 
+## Notice
+This GitHub page is deprecated and moved to: https://github.com/Independer/independer-libs/tree/master/projects/independer/ng-tooltip
+
 ## Demo
-Visit ng-tooltip working online demo here: https://angular-ng-tooltip-playground.stackblitz.io
+Visit ng-tooltip working online demo here: https://independer-ng-tooltip-playground.stackblitz.io ​
 OR see more about the code via stackblitz: `https://stackblitz.com/edit/angular-ng-tooltip-playground`
 
 ## Installation
@@ -79,3 +82,6 @@ It is also possible to have custom HTML content inside the tooltip by declaring 
   </ng-template>
 </ind-tooltip>
 ```
+
+## Compatibility
+Tested and published with Angular 9.1.1
