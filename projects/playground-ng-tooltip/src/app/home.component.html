@@ -1,0 +1,68 @@
+<div class="container">
+  <h1 class="ng-tooltip--header">@independer/ng-tooltip demo</h1>
+
+  <section>
+    <h2>Default tooltip</h2>
+    <p>By default, the tooltip is a grey circle icon with question mark in it (?) and it will show the tooltip when you click on it. There are 3 size variations for the question mark as shown below:</p>
+
+    <div class="ng-tooltip--demo-example">
+      <div class="ng-tooltip-lg">Tooltip with icon lg <ind-tooltip content="This is a simple tooltip which uses content attribute" size="lg"></ind-tooltip></div>
+      <div class="ng-tooltip-md">Tooltip with icon md <ind-tooltip content="This is a simple tooltip which uses content attribute" size="md"></ind-tooltip></div>
+      <div class="ng-tooltip-sm">Tooltip with icon sm (default) <ind-tooltip content="This is a simple tooltip which uses content attribute" size="sm"></ind-tooltip></div>
+    </div>
+    <app-highlight language="html" [source]="source.highlight1"></app-highlight>
+  </section>
+
+  <section>
+    <h2>Custom tooltip trigger</h2>
+    <p>You can also specify custom HTML element as the <strong>tooltip trigger</strong> and the trigger will not be the circle question mark icon anymore.</p>
+    <div class="ng-tooltip--demo-example">
+      <p>
+        <ind-tooltip content="Tooltip without question mark">
+          <a class="ng-tooltip--custom-link">Click this link!</a>
+        </ind-tooltip>
+      </p>
+      <p>
+        <ind-tooltip content="Tooltip without question mark">
+          <button>Click this button!</button>
+        </ind-tooltip>
+      </p>
+    </div>
+    <app-highlight language="html" [source]="source.highlight2"></app-highlight>
+  </section>
+
+  <section>
+    <h2>Tooltip with header and content</h2>
+    <p>Inside the tooltip you can write header and content separately.</p>
+    <div class="ng-tooltip--demo-example">
+      Here you will find tooltip header <ind-tooltip header="This is tooltip header" content="Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen."></ind-tooltip>
+    </div>
+    <app-highlight language="html" [source]="source.highlight3"></app-highlight>
+  </section>
+
+  <section>
+    <h2>Tooltip with HTML content</h2>
+    <p>It is also possible to have custom HTML content inside the tooltip by declaring <code><![CDATA[<ng-template #tooltipContentTemplate></ng-template>]]></code> inside <code><![CDATA[<ind-tooltip></ind-tooltip>]]></code>. The hash tooltipContentTemplate will mark it as HTML content inside tooltip, so it msut be written exactly the same.</p>
+    <div class="ng-tooltip--demo-example">
+      Here you will find tooltip header
+      <ind-tooltip header="This is a tooltip with HTML elements">
+        <ng-template #tooltipContentTemplate>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, obcaecati. Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen.
+          <h4>And a button</h4>
+          <div>
+            <button class="ng-tooltip--custom-button">A button</button>
+          </div>
+        </ng-template>
+      </ind-tooltip>
+    </div>
+    <app-highlight language="html" [source]="source.highlight4"></app-highlight>
+  </section>
+
+  <section>
+    <h2>Tooltip with HTML content</h2>
+    <p>
+      We also support our tooltip to be printed into a dialog. In this case, we use <a href="https://material.angular.io/components/dialog/overview">Angular Material dialog</a>.
+    </p>
+    <button type="button" (click)="openDialog()">Open dialog</button>
+  </section>
+</div>

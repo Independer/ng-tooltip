@@ -1,4 +1,0 @@
-<div class="trigger" #trigger>
-  <div #customTrigger [hidden]="!hasCustomTrigger" (click)="toggle($event)"><ng-content></ng-content></div>
-  <span (click)="toggle($event)" class="icon-question-mark" *ngIf="!hasCustomTrigger" [ngClass]="[size]"></span>
-</div>

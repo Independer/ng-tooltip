@@ -1,15 +1,33 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "target": "es5",
-    "baseUrl": "./src",
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
     "experimentalDecorators": true,
+    "module": "esnext",
     "moduleResolution": "node",
-    "rootDir": "./src",
+    "importHelpers": true,
+    "target": "es2015",
     "lib": [
-      "es2015",
+      "es2018",
       "dom"
     ],
-    "skipLibCheck": true,
-    "types": []
+    "paths": {
+      "ng-tooltip": [
+        "dist/ng-tooltip/ng-tooltip",
+        "dist/ng-tooltip"
+      ],
+      "@independer/ng-tooltip": [
+        "dist/independer/ng-tooltip/independer-ng-tooltip",
+        "dist/independer/ng-tooltip"
+      ]
+    }
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
   }
 }

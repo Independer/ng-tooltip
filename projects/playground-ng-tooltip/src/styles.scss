@@ -1,0 +1,88 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+$purple:         #600174;
+
+// Screen sizes for media queries: xs: mobile, sm: tablet, md: small desktop, lg: desktop
+$screen-xs-min: 320px;
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
+$screen-xs-max: ($screen-sm-min - 1);
+$screen-sm-max: ($screen-md-min - 1);
+$screen-md-max: ($screen-lg-min - 1);
+
+@mixin clearfix {
+  &:before, &:after { content: " "; display: table; }
+  &:after { clear: both; }
+}
+
+$grid-gutter-width:         30px;
+$grid-gutter-margin:        ($grid-gutter-width/2);
+
+// Container sizes
+$container-lg-max: 1110px;
+$container-xs: (400px + $grid-gutter-width);
+$container-sm: (700px + $grid-gutter-width);
+$container-md: (940px + $grid-gutter-width);
+$container-lg: ($container-lg-max + $grid-gutter-width);
+
+.container {
+  display:block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: ($grid-gutter-width/2);
+  padding-right: ($grid-gutter-width/2);
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  @include clearfix;
+  max-width: $container-xs;
+}
+
+@media (min-width: $screen-sm-min) {
+  .container {max-width: $container-sm;}
+}
+
+@media (min-width: $screen-lg-min) {
+  .container {max-width: $container-lg;}
+}
+
+
+$font-size-h1-xs:      28px;
+$font-size-h2-xs:      22px;
+$font-size-h3-xs:      20px;
+$font-size-h4-xs:      18px;
+$font-size-h5-xs:      16px;
+
+$font-size-h1:         34px;
+$font-size-h2:         28px;
+$font-size-h3:         22px;
+$font-size-h4:         18px;
+$font-size-h5:         16px;
+
+h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
+  font-weight: bold;
+  color: $purple;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+h1, .h1 {font-size: $font-size-h1-xs;}
+h2, .h2 {font-size: $font-size-h2-xs;}
+h3, .h3 {font-size: $font-size-h3-xs;}
+h4, .h4 {font-size: $font-size-h4-xs;}
+h5, .h5 {font-size: $font-size-h5-xs; margin-bottom: 5px;}
+
+@media(min-width:$screen-sm-min){
+  h1, .h1 {font-size: $font-size-h1;}
+  h2, .h2 {font-size: $font-size-h2;}
+  h3, .h3 {font-size: $font-size-h3;}
+  h4, .h4 {font-size: $font-size-h4;}
+  h5, .h5 {font-size: $font-size-h5;}
+}
+
+.h2 h1{
+  display:inline;
+  font-size: inherit;
+}
