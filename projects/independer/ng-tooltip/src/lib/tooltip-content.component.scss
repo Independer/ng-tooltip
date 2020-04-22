@@ -1,0 +1,86 @@
+@mixin transition($args...) {
+  -webkit-transition: $args;
+       -o-transition: $args;
+          transition: $args;
+}
+
+$tooltip-border-color: rgba(0, 0, 0, 0.25);
+
+$tooltip-normal-width: 320px;
+$tooltip-wide-width: 450px;
+
+$zindex-tooltip: 9999;
+
+// Screen sizes for media queries: xs: mobile, sm: tablet, md: small desktop, lg: desktop
+$screen-xs-min: 320px;
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
+$screen-xs-max: ($screen-sm-min - 1);
+$screen-sm-max: ($screen-md-min - 1);
+$screen-md-max: ($screen-lg-min - 1);
+
+:host { font-family: sans-serif; }
+
+.tooltip {
+  position: absolute;
+  border: 4px $tooltip-border-color solid;
+  border-radius: 7px;
+  text-align: left;
+  opacity: 0;
+  display: none;
+  background-color: white;
+  padding: 15px 35px 15px 15px;
+  z-index: $zindex-tooltip;
+  font-size: 14px;
+  width: $tooltip-normal-width;
+
+  @include transition(opacity 0.3s ease-in-out);
+
+  &.is-showing { display: block; }
+  &.is-shown { opacity: 1; }
+
+  @media(max-width:$screen-xs-max) {
+    width: calc(100vw - 90px);
+  }
+}
+
+@media (min-width:$screen-sm-min) {
+  .tooltip.tooltip__wide {
+    width: auto;
+    max-width: $tooltip-wide-width;
+    padding: 20px 45px 20px 20px;
+  }
+}
+
+.tooltip--arrow {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-right: 4px $tooltip-border-color solid;
+  border-bottom: 4px $tooltip-border-color solid;
+
+  -moz-transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+  bottom: auto;
+  top: -13px;
+}
+.tooltip--content__header {
+  font-weight: bold;
+}
+.tooltip--close-btn {
+  font-size: 20px;
+  color: #AEAEAE;
+  position: absolute;
+  top: 10px; right: 10px;
+  cursor: pointer;
+}
+.tooltip--content {
+  ::ng-deep p:last-of-type {
+    margin-bottom: 0;
+  }
+}
